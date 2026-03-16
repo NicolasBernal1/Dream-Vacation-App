@@ -13,8 +13,8 @@ This application allows users to create a list of countries they'd like to visit
 ### Frontend
 1. Navigate to the `frontend` directory.
 2. Run `npm install` to install dependencies.
-3. Update the `.env` file with your API URL (e.g., `REACT_APP_API_URL=http://localhost:3001`).
-4. Run `npm start` to start the React development server.
+3. Update the `.env` file with your API URL (e.g., `VITE_API_URL=http://localhost:3001`).
+4. Run `npm run dev` to start the frontend development server.
 
 ## Features
 - **Add Countries**: Users can add countries to their dream vacation list.

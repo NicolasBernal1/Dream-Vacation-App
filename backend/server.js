@@ -13,11 +13,11 @@ app.use(express.json());
 
 // MySQL Connection Pool
 const pool = mysql.createPool({
-  host: 'localhost', // Replace with your host if different
-  user: 'root', // Replace with your MySQL username
-  password: '', // Replace with your MySQL password
-  database: 'dreamvacations', // Replace with your database name
-  port: 3306, // Default MySQL port
+  host: process.env.DB_HOST, // Replace with your host if different
+  user: process.env.DB_USER, // Replace with your MySQL username
+  password: process.env.DB_PASSWORD, // Replace with your MySQL password
+  database: process.env.DB_NAME, // Replace with your database name
+  port: process.env.DB_PORT, // Default MySQL port
 });
 
 // Ensure the table exists
