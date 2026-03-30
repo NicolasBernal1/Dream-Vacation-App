@@ -122,6 +122,8 @@ function App() {
                         <th scope="col">Country</th>
                         <th scope="col">Capital</th>
                         <th scope="col">Population</th>
+                        <th scope="col">Currency</th>
+                        <th scope="col">Anthem</th>
                         <th scope="col">Region</th>
                         <th scope="col" className="text-end">Actions</th>
                       </tr>
@@ -132,6 +134,8 @@ function App() {
                           <td className="fw-semibold">{dest.country || 'N/A'}</td>
                           <td>{dest.capital || 'N/A'}</td>
                           <td>{formatPopulation(dest.population)}</td>
+                          <td>{dest.currency || 'N/A'}</td>
+                          <td>{dest.anthem || 'N/A'}</td>
                           <td>
                             <span className="badge rounded-pill text-bg-info">{dest.region || 'N/A'}</span>
                           </td>

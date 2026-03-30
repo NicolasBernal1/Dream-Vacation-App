@@ -28,7 +28,9 @@ const createTable = async () => {
       country VARCHAR(255) NOT NULL,
       capital VARCHAR(255),
       population BIGINT,
-      region VARCHAR(255)
+      region VARCHAR(255),
+      currency   VARCHAR(255),
+      anthem   VARCHAR(255)
     );
   `;
   try {
@@ -65,10 +67,11 @@ app.post('/api/destinations', async (req, res) => {
 
     // Insert data into the MySQL database
     const [result] = await pool.query(
-      'INSERT INTO destinations (country, capital, population, region) VALUES (?, ?, ?, ?)',
-      [country, countryInfo.capital[0], countryInfo.population, countryInfo.region]
+      'INSERT INTO destinations (country, capital, population, region, currency, anthem) VALUES (?, ?, ?, ?, ?, ?)',
+      [country, countryInfo.capital[0], countryInfo.population, countryInfo.region, countryInfo.currencies[0].name, countryInfo.anthem]
     );
-    res.status(201).json({ id: result.insertId, country, capital: countryInfo.capital[0], population: countryInfo.population, region: countryInfo.region });
+    console.log(countryInfo.currencies[0].name);
+    res.status(201).json({ id: result.insertId, country, capital: countryInfo.capital[0], population: countryInfo.population, region: countryInfo.region, currency: countryInfo.currencies[0].name, anthem: countryInfo.anthem });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });
